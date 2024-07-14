@@ -29,19 +29,20 @@ RSpec.describe "User Story #2 - Recipes Show Page", type: :feature do
       RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_1)
       RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_2)
       RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_3)
+      RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_4)
 
-      RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_7)
-      RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_8)
-      RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_9)
+      RecipeIngredient.create!(recipe: @recipe_2, ingredient: @ingredient_7)
+      RecipeIngredient.create!(recipe: @recipe_2, ingredient: @ingredient_8)
+      RecipeIngredient.create!(recipe: @recipe_2, ingredient: @ingredient_9)
       
-      visit "/recipes/#{@recipe.id}"
+      visit "/recipes/#{@recipe_1.id}"
       save_and_open_page
     end
 
     it "I see the recipe's name, complexity, and genre" do
-      expect(page).to have_content(@recipe.name)
-      expect(page).to have_content(@recipe.complexity)
-      expect(page).to have_content(@recipe.genre)
+      expect(page).to have_content(@recipe_1.name)
+      expect(page).to have_content(@recipe_1.complexity)
+      expect(page).to have_content(@recipe_1.genre)
     end
 
     it "I see a list of ingredients for each recipe" do
@@ -50,11 +51,8 @@ RSpec.describe "User Story #2 - Recipes Show Page", type: :feature do
         # on the '/recipes/:id' (show) page
       expect(page).to have_content("pasta")
       expect(page).to have_content("tomatoes")
+      expect(page).to have_content("pesto")
       expect(page).to have_content("cheese")
-
-      expect(page).to have_content("garlic")
-      expect(page).to have_content("butter")
-      expect(page).to have_content("bread")
 
       # Sad Path
       # We should NOT see these ingredients anywhere on this page
