@@ -8,7 +8,7 @@
 
 require "rails_helper"
 
-RSpec.describe "User Story #1 - Ingredient Index", type: :model do
+RSpec.describe "User Story #1 - Ingredient Index", type: :feature do
   describe "When I visit '/ingredients'" do
     it "I see a list of all the ingredients - including their name and cost" do
       ingredient_1 = Ingredient.create!(name: "pasta", cost: 12)
