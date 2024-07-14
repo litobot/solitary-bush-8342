@@ -57,7 +57,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'orderly'
+  gem 'orderly' # Needed this for Extension #1 (always run `bundle install` after adding gems)
 end
 
 group :development do

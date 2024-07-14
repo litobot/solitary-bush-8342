@@ -1,5 +1,10 @@
 <h1>Ingredients</h1>
 
+<! We are using AR syntax here to grab all the ingredient objects, >
+  <! order them (by name - remember that is the name column on the ingredients table) >
+<! So when we do the `.each` on `@ingredients.order(:name)` we already have >
+  <! all of the ingredients from that table sorted alphabetically >
+
 <% @ingredients.order(:name).each do |ingredient| %>
   <p> Name: <%= ingredient.name %></p>
   <p> Cost: <%= ingredient.cost %></p>

@@ -27,6 +27,8 @@ RSpec.describe "Extension #1 - Ingredients Sorted Alphabetically", type: :featur
     end
 
     it "displays all ingredients listed alphabetically" do
+
+      # Happy Path
       expect("bread").to appear_before("butter")
       expect("butter").to appear_before("cheese")
       expect("cheese").to appear_before("garlic")
@@ -35,6 +37,16 @@ RSpec.describe "Extension #1 - Ingredients Sorted Alphabetically", type: :featur
       expect("mushrooms").to appear_before("pasta")
       expect("pasta").to appear_before("pesto")
       expect("pesto").to appear_before("tomatoes")
+
+      # Sad Path -> Can't figure out why it won't work
+      # expect("bread").to_not appear_before("butter")
+      # expect("butter").to_not appear_before("cheese")
+      # expect("cheese").to_not appear_before("garlic")
+      # expect("garlic").to_not appear_before("meat")
+      # expect("meat").to_not appear_before("mushrooms")
+      # expect("mushrooms").to_not appear_before("pasta")
+      # expect("pasta").to_not appear_before("pesto")
+      # expect("pesto").to_not appear_before("tomatoes")
     end
   end
 end

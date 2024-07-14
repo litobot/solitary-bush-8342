@@ -19,11 +19,13 @@ RSpec.describe "User Story #1 - Ingredient Index", type: :feature do
       visit "/ingredients"
       save_and_open_page
 
+      # Happy Path - all of these should appear because they are instantiated in our test
       expect(page).to have_content("pasta")
       expect(page).to have_content("tomatoes")
       expect(page).to have_content("pesto")
       expect(page).to have_content("cheese")
       
+      # Sad Path - None of these should appear because they were never created
       expect(page).to_not have_content("olives")
       expect(page).to_not have_content("meat")
       expect(page).to_not have_content("bread")
