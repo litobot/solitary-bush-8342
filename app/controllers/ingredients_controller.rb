@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredient = Ingredient.all
+    @ingredients = Ingredient.all
   end
 end
